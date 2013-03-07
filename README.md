@@ -1,7 +1,7 @@
 Djanoa
 ======
 
-Interface Ruby pour envoyer des SMS avec la plateforme Djanoa (http://www.djanoa.com/).
+Interface Ruby pour envoyer des SMS avec la plateforme [Djanoa](http://www.djanoa.com).
 
 Installation
 ------------
@@ -12,7 +12,7 @@ gem install djanoa
 Utilisation
 -----------
 
-Il faut d'abord créer un compte sur [le site de djanoa](http://www.djanoa.com//).
+Il faut d'abord créer un compte sur [le site de djanoa](http://www.djanoa.com).
 
 Ensuite vous faites les configurations
 ```ruby
@@ -51,4 +51,4 @@ end
 
 Copyright
 ---------
-Copyright 2013 Cheikh Sidya CAMARA. Voir la LICENSE pour plus de détails.
+Copyright 2013 Cheikh Sidya CAMARA. Voir [la LICENSE](https://github.com/scicasoft/djanoa/blob/master/LICENSE.md) pour plus de détails.
