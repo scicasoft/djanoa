@@ -10,7 +10,7 @@ module Djanoa
 
     def initialize response = ""
       doc = Nokogiri::Slop response
-      @sent = doc.root.name == "DjanoaResponse" ? true : false
+      @sent = doc.root.name == "DjanoaResponse"
       unless @sent
         code = doc.DjanoaError.Code.content.to_i
         message = doc.DjanoaError.Error.content
