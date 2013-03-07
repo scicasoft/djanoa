@@ -26,10 +26,8 @@ end
 ensuite pour envoyer un SMS il suffit de faire :
 
 ```ruby
-Djanoa.send_sms '221772134794', 'juste pour tester mon gem'
+Djanoa.send_sms '221777777777', 'juste pour tester mon gem'
 ```
-
-Voilà c'est tout.
 
 Gestion des erreurs
 -------------------
@@ -38,7 +36,7 @@ Si vous voulez allez plus loin vous pouvez récupérer la réponse et voir s'il 
 
 Le code suivant permet d'envoyer un SMS et, s'il y'a une erreur, affiche le code de l'erreur, le message d'erreur ainsi que l'adresse IP de l'envoyeur.
 ```ruby
-r = Djanoa.send_sms '221772134794', 'juste pour tester mon gem'
+r = Djanoa.send_sms '221777777777', 'juste pour tester mon gem'
 
 if r.sent?
   puts r.error.code
