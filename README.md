@@ -39,11 +39,11 @@ Le code suivant permet d'envoyer un SMS et, s'il y'a une erreur, affiche le code
 r = Djanoa.send_sms '221777777777', 'juste pour tester mon gem'
 
 if r.sent?
+  puts "le sms est envoyé"
+else
   puts r.error.code
   puts r.error.message
   puts r.error.ip
-else
-  puts "le sms est envoyé"
 end
 ```
 
