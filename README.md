@@ -16,6 +16,8 @@ Il faut d'abord créer un compte sur [le site de djanoa](http://www.djanoa.com).
 
 Ensuite vous faites les configurations
 ```ruby
+require 'djanoa'
+
 Djanoa.configure do |config|
   config.from = VOTRE_NUMERO_COURT
   config.account_code = CODE_DE_VOTRE_COMPTE
