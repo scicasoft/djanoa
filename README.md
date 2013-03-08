@@ -1,7 +1,7 @@
 Djanoa
 ======
 
-Interface Ruby pour envoyer des SMS avec la plateforme [Djanoa](http://www.djanoa.com).
+Client Ruby pour la plateforme [Djanoa](http://www.djanoa.com).
 
 Installation
 ------------
@@ -19,8 +19,8 @@ Ensuite vous faites les configurations
 require 'djanoa'
 
 Djanoa.configure do |config|
-  config.from = VOTRE_NUMERO_COURT
-  config.account_code = CODE_DE_VOTRE_COMPTE
+  config.from             = VOTRE_NUMERO_COURT
+  config.account_code     = CODE_DE_VOTRE_COMPTE
   config.application_pass = MOT_DE_PASSE
 end
 ```
@@ -51,4 +51,4 @@ end
 
 Copyright
 ---------
-Copyright 2013 Cheikh Sidya CAMARA. Voir [la LICENSE](https://github.com/scicasoft/djanoa/blob/master/LICENSE.md) pour plus de détails.
+Copyright 2013 Cheikh Sidya CAMARA. Voir la [LICENSE](https://github.com/scicasoft/djanoa/blob/master/LICENSE.md) pour plus de détails.
