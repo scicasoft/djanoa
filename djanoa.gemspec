@@ -1,7 +1,7 @@
 # coding: utf-8
 Gem::Specification.new do |s|
   s.name                      = "djanoa"
-  s.version                   = "1.0.0"
+  s.version                   = "1.0.1"
   s.default_executable        = "djanoa"
 
   s.add_dependency 'rest-client', '>= 1.6.7'
