@@ -49,6 +49,11 @@ else
 end
 ```
 
+Utilisation avec Rails
+----------------------
+
+Comming soon ... :-)
+
 Copyright
 ---------
 Copyright 2013 Cheikh Sidya CAMARA. Voir la [LICENSE](https://github.com/scicasoft/djanoa/blob/master/LICENSE.md) pour plus de détails.

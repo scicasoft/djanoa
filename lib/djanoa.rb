@@ -1,5 +1,6 @@
 require 'djanoa/error'
 require 'djanoa/response'
+require 'djanoa/received_message'
 
 require 'uri'
 require 'rest-client'
