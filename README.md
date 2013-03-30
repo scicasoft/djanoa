@@ -52,7 +52,7 @@ end
 Utilisation avec Rails
 ----------------------
 
-Comming soon ... :-)
+Coming soon ... :-)
 
 Copyright
 ---------
