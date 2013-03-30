@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.add_dependency "nokogiri", "~> 1.5.6"
   s.required_rubygems_version = '>= 1.3.6'
   s.authors                   = ["Cheikh Sidya CAMARA"]
-  s.date                      = %q{2013-03-07}
+  s.date                      = %q{2013-03-30}
   s.description               = %q{Client Ruby pour la plateforme Djanoa.}
   s.email                     = %q{scicasoft@gmail.com}
   s.files                     = `git ls-files`.split("\n")
