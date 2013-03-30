@@ -52,7 +52,25 @@ end
 Utilisation avec Rails
 ----------------------
 
-Coming soon ...  :-)
+Depuis la version 1.0.1, vous pouvez utiliser la gem sur votre application Ruby On Rails pour la reception des SMS.
+
+Il faut ajouter la ligne suivante sur votre fichier Gemfile
+```ruby
+gem 'djanoa'
+```
+Ensuite vous faites un `bundle install`. Après ca vous lancez le générateur
+```bash
+rails generate djanoa:install
+
+# résultat :
+      create  db/migrate/20130330192041_djanoa_migration.rb
+      create  app/models/djanoa_message.rb
+      create  app/controllers/djanoa_messages_controller.rb
+      create  config/initializers/djanoa.rb
+       route  get '/new_sms' => 'djanoa_messages#new_sms', defaults: {format: 'xml'}
+```
+Après ca il faut éditer le fichier d'initialisation djanoa.rb et mettre les informations de votre compte djanoa.
+Sur votre compte djanoa vous pouver ajouter l'URL http://votre_domaine/new_sms avec la méthode GET.
 
 Copyright
 ---------
