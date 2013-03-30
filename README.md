@@ -52,9 +52,9 @@ end
 Utilisation avec Rails
 ----------------------
 
-### installation
-
 Depuis la version 1.0.1, vous pouvez utiliser la gem sur votre application Ruby On Rails pour la reception des SMS.
+
+### installation
 
 Il faut ajouter la ligne suivante sur votre fichier Gemfile
 ```ruby
@@ -78,7 +78,19 @@ Maintenant à chaque fois qu'il recoit un SMS il l'enregistre dans la table djan
 
 ### autres méthodes
 
-coming soon ...
+```ruby
+# récupération du dernier sms recu
+sms = DjanoaMessage.last
+
+# récupérer la liste des mots du texte du sms dans un tableau
+sms.words
+
+# vérifier si y'a un deuxième mot dans le text du sms
+sms.word_2_exists?
+
+# récupération du troisième mot du message
+sms.word_3
+```
 
 Copyright
 ---------
