@@ -2,7 +2,7 @@ module Djanoa
   class Error
     attr_reader :code, :message, :ip
 
-    # Instantiates a new django error object
+    # Instantiates a new djanoa error object
     # @param code [Integer]
     # @param message [String]
     # @param ip [String]

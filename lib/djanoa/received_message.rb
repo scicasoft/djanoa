@@ -17,7 +17,7 @@ module Djanoa
     # @return [Array]
 
     def words
-      @message.split
+      @message ? @message.split : []
     end
 
     def method_missing(m, *args)
