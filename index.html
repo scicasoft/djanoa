@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Djanoa : Client Ruby pour la plateforme Djanoa (http://www.djanoa.com/)" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Djanoa</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/scicasoft/djanoa">View on GitHub</a>
+
+          <h1 id="project_title">Djanoa</h1>
+          <h2 id="project_tagline">Client Ruby pour la plateforme Djanoa (http://www.djanoa.com/)</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/scicasoft/djanoa/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/scicasoft/djanoa/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="djanoa" class="anchor" href="#djanoa"><span class="octicon octicon-link"></span></a>Djanoa</h1>
+
+<p>Client Ruby pour la plateforme <a href="http://www.djanoa.com">Djanoa</a>.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<div class="highlight"><pre>gem install djanoa
+</pre></div>
+
+<h2>
+<a name="utilisation" class="anchor" href="#utilisation"><span class="octicon octicon-link"></span></a>Utilisation</h2>
+
+<p>Il faut d'abord créer un compte sur <a href="http://www.djanoa.com">le site de djanoa</a>.</p>
+
+<p>Ensuite vous faites les configurations</p>
+
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'djanoa'</span>
+
+<span class="no">Djanoa</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">from</span>             <span class="o">=</span> <span class="no">VOTRE_NUMERO_COURT</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">account_code</span>     <span class="o">=</span> <span class="no">CODE_DE_VOTRE_COMPTE</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">application_pass</span> <span class="o">=</span> <span class="no">MOT_DE_PASSE</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>ensuite pour envoyer un SMS il suffit de faire :</p>
+
+<div class="highlight"><pre><span class="no">Djanoa</span><span class="o">.</span><span class="n">send_sms</span> <span class="s1">'221777777777'</span><span class="p">,</span> <span class="s1">'juste pour tester mon gem'</span>
+</pre></div>
+
+<h2>
+<a name="gestion-des-erreurs" class="anchor" href="#gestion-des-erreurs"><span class="octicon octicon-link"></span></a>Gestion des erreurs</h2>
+
+<p>Si vous voulez allez plus loin vous pouvez récupérer la réponse et voir s'il n'y a pas d'erreur.</p>
+
+<p>Le code suivant permet d'envoyer un SMS et, s'il y'a une erreur, affiche le code de l'erreur, le message d'erreur ainsi que l'adresse IP de l'envoyeur.</p>
+
+<div class="highlight"><pre><span class="n">r</span> <span class="o">=</span> <span class="no">Djanoa</span><span class="o">.</span><span class="n">send_sms</span> <span class="s1">'221777777777'</span><span class="p">,</span> <span class="s1">'juste pour tester mon gem'</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">sent?</span>
+  <span class="nb">puts</span> <span class="s2">"le sms est envoyé"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="n">r</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">code</span>
+  <span class="nb">puts</span> <span class="n">r</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">message</span>
+  <span class="nb">puts</span> <span class="n">r</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">ip</span>
+<span class="k">end</span>
+</pre></div>
+
+<h2>
+<a name="utilisation-avec-rails" class="anchor" href="#utilisation-avec-rails"><span class="octicon octicon-link"></span></a>Utilisation avec Rails</h2>
+
+<p>Depuis la version 1.0.1, vous pouvez utiliser la gem sur votre application Ruby On Rails pour la reception des SMS.</p>
+
+<h3>
+<a name="installation-1" class="anchor" href="#installation-1"><span class="octicon octicon-link"></span></a>installation</h3>
+
+<p>Il faut ajouter la ligne suivante sur votre fichier Gemfile</p>
+
+<div class="highlight"><pre><span class="n">gem</span> <span class="s1">'djanoa'</span>
+</pre></div>
+
+<p>Ensuite vous faites un <code>bundle install</code>. Après ca vous lancez le générateur</p>
+
+<div class="highlight"><pre>rails generate djanoa:install
+
+<span class="c"># résultat :</span>
+      create  db/migrate/20130330192041_djanoa_migration.rb
+      create  app/models/djanoa_message.rb
+      create  app/controllers/djanoa_messages_controller.rb
+      create  config/initializers/djanoa.rb
+       route  get <span class="s1">'/new_sms'</span> <span class="o">=</span>&gt; <span class="s1">'djanoa_messages#new_sms'</span>, defaults: <span class="o">{</span>format: <span class="s1">'xml'</span><span class="o">}</span>
+</pre></div>
+
+<p>Après ca il faut éditer le fichier d'initialisation djanoa.rb et mettre les informations de votre compte djanoa.
+Sur votre compte djanoa vous pouver ajouter l'URL http://votre_domaine/new_sms avec la méthode GET.</p>
+
+<p>Maintenant à chaque fois qu'il recoit un SMS il l'enregistre dans la table djanoa_messages</p>
+
+<h3>
+<a name="autres-mthodes" class="anchor" href="#autres-mthodes"><span class="octicon octicon-link"></span></a>autres méthodes</h3>
+
+<div class="highlight"><pre><span class="c1"># récupération du dernier sms recu</span>
+<span class="n">sms</span> <span class="o">=</span> <span class="no">DjanoaMessage</span><span class="o">.</span><span class="n">last</span>
+
+<span class="c1"># récupérer la liste des mots du texte du sms dans un tableau</span>
+<span class="n">sms</span><span class="o">.</span><span class="n">words</span>
+
+<span class="c1"># vérifier si y'a un deuxième mot dans le text du sms</span>
+<span class="n">sms</span><span class="o">.</span><span class="n">word_2_exists?</span>
+
+<span class="c1"># récupération du troisième mot du message</span>
+<span class="n">sms</span><span class="o">.</span><span class="n">word_3</span>
+</pre></div>
+
+<h2>
+<a name="copyright" class="anchor" href="#copyright"><span class="octicon octicon-link"></span></a>Copyright</h2>
+
+<p>Copyright 2013 Cheikh Sidya CAMARA. Voir la <a href="https://github.com/scicasoft/djanoa/blob/master/LICENSE.md">LICENSE</a> pour plus de détails.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Djanoa maintained by <a href="https://github.com/scicasoft">scicasoft</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
