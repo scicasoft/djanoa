@@ -3,6 +3,7 @@ require 'rspec'
 require_relative '../lib/djanoa/received_message.rb'
 
 describe Djanoa::ReceivedMessage do
+
   context 'Empty params' do
     let(:message) { Djanoa::ReceivedMessage.new({}) }
 
@@ -33,4 +34,5 @@ describe Djanoa::ReceivedMessage do
       expect(msg.message).to eq 'bonjour les gars'
     end
   end
+
 end
