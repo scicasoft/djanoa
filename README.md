@@ -1,4 +1,4 @@
-Djanoa
+Djanoa [![Inline docs](http://inch-pages.github.io/github/scicasoft/djanoa.png)](http://inch-pages.github.io/github/scicasoft/djanoa)
 ======
 
 Client Ruby pour la plateforme [Djanoa](http://www.djanoa.com).
